@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.min.css"> -->
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous">
+    </script>
+    <title>Embedded App Automated Test</title>
+</head>
+
+
+<body>
+  <!-- <div id="mocha"></div> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.min.js"></script>
+  <script>mocha.setup('bdd')</script> -->
+  <!-- Context Method Container-->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>Context Method SDK</h4></span></div>
+    <div class = "content">
+      <div>
+        <button id = "getContext">Get Context</button>
+      </div>
+      <div>
+        <button id = "leadTest">Test SDK Lead Context Method</button>
+      </div>
+      <div>
+        <button id = "peopleTest">Test SDK People Context Method</button>
+      </div>
+      <div>
+        <button id = "companyTest">Test SDK Company Context Method</button>
+      </div>
+      <div>
+        <button id = "opportunityTest">Test SDK Opportunity Context Method</button>
+      </div>
+      <div>
+        <button id = "projectTest">Test SDK Project Context Method</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Open Close Method Container-->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>Modal Method SDK</h4></span></div>
+    <div class = "content">
+      <button id="btnOpenModal">Open Modal</button>
+      <button id="btnCloseModal">Close Modal</button>
+    </div>
+  </div>
+
+  <!-- UI Update Container-->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>UI Update Method SDK</h4></span></div>
+    <div class = "content">
+      <div>Update UI Height
+        <input id=updateHeight></input>
+        <button id="BtnUpdateHeight">Update UI Height</button>
+      </div>
+      <div>Update UI Width
+        <input id=updateWidth></input>
+        <button id="BtnUpdateWidth">Update UI Width</button>
+      </div>
+      <div>Update Count Number
+        <input id=updateCount></input>
+        <button id="BtnUpdateCount">Update Count</button>
+      </div>
+      <div>Update Add Button Status
+        <input id=updateAddButton></input>
+        <button id="BtnUpdateAdd">Update Add Button</button>
+      </div>
+      <div>Update showActionBar
+        <input id=updateActionBar></input>
+        <button id="BtnActionBar">Update showActionBar Button</button>
+      </div>
+      <div>Update isActionBarActive
+        <input id=updateActionActive></input>
+        <button id="BtnActionActive">Update isActionBarActive Button</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DevAPI Container-->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>DevAPI Method SDK</h4></span></div>
+    <div class = "content">
+      <!-- Get API Data -->
+      <button id="btnApiGET">Get Data from DevAPI</button>
+      <select id="get_request">
+        <option value = "list_activity" selected>List Activity</option>
+        <option value = "user_id">User ID</option>
+        <option value = "contact_type">Contact Type List</option>
+        <option value = "custom_field">Custom Field List</option>
+        <option value = "pipeline_stages">Pipeline and Stages List</option>
+        <option value = "loss_reason">Lost Reason List</option>
+      </select>
+
+      <!-- DevAPI Creation -->
+      <button id="btnApi">Call dev api </button>
+      <select id="CRUD">
+        <option value = "create" selected>Create</option>
+        <option value = "empty_create">Empty Name Create</option>
+        <option value = "update">Update</option>
+        <option value = "empty_update">Empty Update</option>
+        <option value = "read_list">Read(List)</option>
+        <option value = "read_single">Read(Single)</option>
+        <option value = "delete">Delete</option>
+        <option value = "convert_lead">Convert Lead</option>
+      </select>
+      <select id="apiEntity">
+        <option value = "leads" selected>Lead</option>
+        <option value = "people">People</option>
+        <option value = "companies">Company</option>
+        <option value = "opportunities">Opportunity</option>
+        <option value = "projects">Project</option>
+        <option value = "tasks">Task</option>
+      </select>
+
+      <!-- DevAPI Activity Creation -->
+      <button id="btnApiActivity">Activity Through DevAPI</button>
+      <select id="activity_api">
+        <option value = "create_activity" selected>Create Activity</option>
+        <option value = "read_activity">Read Activity</option>
+        <option value = "delete_activity">Delete Activity</option>
+      </select>
+
+      <div>
+        <text id="read_api_length"></text>
+      </div>
+    </div>
+  </div>
+
+  <!-- Log All Activity -->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>Activity Method SDK</h4></span></div>
+    <div class = "content">
+      <div>
+        <button id="btnLogActivity">Log All Activity For This Record</button>
+      </div>
+      <div>
+        <button id="btnRefreshActivityLog">Refresh ActivityLog</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Entity Method -->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>Create Entity Method SDK</h4></span></div>
+    <div class = "content">
+      <div>
+          <select id="entityType">
+              <option value="lead" value_2 = "1" selected>lead</option>
+              <option value="person" value_2 = "2">person</option>
+              <option value="company" value_2 = "3">company</option>
+              <option value="opportunity" value_2 = "4">opportunity</option>
+              <option value="task" value_2 = "5">task</option>
+              <option value="project" value_2 = "6">project</option>
+          </select>
+          <button id="btnCreateEntity">Create Entity</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listener Method -->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>Listen-Publish Method SDK </h4></span></div>
+    <div class = "content">
+      <div>
+        <div>
+            <button id="btnOn">Listen Event</button>
+            <input type="text" id="eventName" value="foo">
+            <div id='messageReceived'></div>
+        </div>
+      </div>
+      <div>
+          <button id="btnPublishMessage">Publish Message</button>
+          <input type="text" id="messageTarget" value="sidebar">
+          <input type="text" id="messageType" value="foo">
+          <textarea id='messageContent'>{"name":"Alice","age":20}</textarea>
+      </div>
+      <div>
+        <button id="btnAddButtonClicked">Add Button Clicked Listener</button>
+      </div>
+      <div>
+        <button id="btnPhoneNumberClicked">Phone Number Clicked Listener</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Relate Entity Method -->
+  <div class = "container">
+    <div class = "sdkMethod"><span><h4>Relate Entity Method SDK </h4></span></div>
+    <div class = "content">
+      <button id="btnRelateTask">Relate Task</button>
+      <br>
+      <button id="btnRelatePerson">Relate Person</button>
+      <br>
+      <button id="btnRelateCompany">Relate Company</button>
+      <br>
+      <button id="btnRelateOpportunity">Relate Opportunity</button>
+      <br>
+    </div>
+  </div>
+
+
+
+  <div>
+    <h3>Logs</h3>
+  </div>
+  <div id="logs"></div>
+
+  <!-- <script>
+      mocha.run();
+  </script> -->
+</body>
+
+</html>
