@@ -1,7 +1,7 @@
 import copperSDK from 'copper-sdk'
 const sdk = copperSDK.init()
 sdk.setAppUI({
-  height: 500,
+  height: 700,
   width : 700
 })
 /*

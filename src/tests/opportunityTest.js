@@ -1,6 +1,6 @@
 import * as opportunityMethod from '../contextMethodSDK/opportunityContext.js'
 
-async function opportunityTest() {
+export async function opportunityTest() {
   await opportunityMethod.nameContext()
   await opportunityMethod.pipelineContext()
   await opportunityMethod.primaryContactContext()

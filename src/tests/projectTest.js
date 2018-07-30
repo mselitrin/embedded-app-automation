@@ -1,6 +1,6 @@
 import * as projectMethod from '../contextMethodSDK/projectContext.js'
 
-async function projectTest() {
+export async function projectTest() {
   await projectMethod.nameContext();
   await projectMethod.ownerContext();
   await projectMethod.statusContext();

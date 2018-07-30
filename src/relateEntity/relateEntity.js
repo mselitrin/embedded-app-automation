@@ -1,7 +1,7 @@
 import copperSDK from 'copper-sdk'
 const sdk = copperSDK.init()
 
-async function handleRelateTask() {
+export async function handleRelateTask() {
   const { context } = await sdk.getContext();
   const mainEntityID = context.id;  //save ID of main Entity
   const mainEntityType = context.type; //save TYPE of main Entity
@@ -24,8 +24,31 @@ async function handleRelateTask() {
   }
 }
 
+export async function handleRelateProject() {
+  const { context } = await sdk.getContext();
+  const mainEntityID = context.id;  //save ID of main Entity
+  const mainEntityType = context.type; //save TYPE of main Entity
 
-async function handleRelatePerson() {
+  const create_record = 'v1/projects';
+  const record_name = "project" + new Date().getTime();
+  const create_record_body = '{"name": "' + record_name + '"}';
+  const sampleRecord = await sdk.api(create_record, {method:'POST', body: create_record_body})
+
+  const target = {
+    "id": sampleRecord.id,
+    "type": "project"
+  };
+
+  if(await sdk.relateEntity(mainEntityType, mainEntityID, target)) { //relate target to {mainEntityID, mainEntityType}
+    console.log(record_name + " successfully related to " + mainEntityType);
+    await sdk.refreshUI({ name: 'Related', data : {type : 'project'} })
+  } else {
+    console.log("Error while relating project");
+  }
+}
+
+
+export async function handleRelatePerson() {
   const { context } = await sdk.getContext();
   const mainEntityID = context.id;  //save ID of main Entity
   const mainEntityType = context.type; //save TYPE of main Entity
@@ -49,7 +72,7 @@ async function handleRelatePerson() {
 }
 
 
-async function handleRelateCompany() {
+export async function handleRelateCompany() {
   const { context } = await sdk.getContext();
   const mainEntityID = context.id;  //save ID of main Entity
   const mainEntityType = context.type; //save TYPE of main Entity
@@ -73,7 +96,7 @@ async function handleRelateCompany() {
 }
 
 
-async function handleRelateOpportunity() {
+export async function handleRelateOpportunity() {
   const { context } = await sdk.getContext();
   const mainEntityID = context.id;  //save ID of main Entity
   const mainEntityType = context.type; //save TYPE of main Entity

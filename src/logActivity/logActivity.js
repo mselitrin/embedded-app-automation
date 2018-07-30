@@ -1,7 +1,7 @@
 import copperSDK from 'copper-sdk'
 const sdk = copperSDK.init()
 
-async function handleLogActivity() {
+export async function handleLogActivity() {
   //Setup
   var activityType = ["Note", "Phone Call", "Meeting", "To Do", "Custom Note"]
   var activityID = [0, 0, 0, 0, 0]

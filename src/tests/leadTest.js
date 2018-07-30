@@ -1,6 +1,6 @@
 import * as leadMethod from '../contextMethodSDK/leadContext.js'
 
-async function leadTest() {
+export async function leadTest() {
   await leadMethod.firstNameContext();
   await leadMethod.middleNameContext();
   await leadMethod.lastNameContext();

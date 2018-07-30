@@ -1,6 +1,6 @@
 import * as companyMethod from '../contextMethodSDK/companyContext.js'
 
-async function companyTest() {
+export async function companyTest() {
   await companyMethod.nameContext();
   await companyMethod.phoneContext();
   await companyMethod.ownerContext();

@@ -1,6 +1,6 @@
 import * as peopleMethod from '../contextMethodSDK/peopleContext.js'
 
-async function peopleTest() {
+export async function peopleTest() {
   await peopleMethod.firstNameContext();
   await peopleMethod.middleNameContext();
   await peopleMethod.lastNameContext();
