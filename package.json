@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "chai": "^4.1.2",
-    "copper-sdk": "latest",
+    "copper-sdk": "^0.4.2",
     "mocha": "^5.2.0"
   }
 }

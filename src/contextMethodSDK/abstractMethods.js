@@ -22,7 +22,7 @@ export async function handleSaveContext(fieldName, fieldValue, errorMessage = ''
     const data = await context.save()
     //Error Message Handling
   } catch (e) {
-    //console.log(errorMessage + e.detail)
+    console.log(errorMessage + e.detail)
     if (e.detail == errorMessage) {
       textnode = document.createTextNode(fieldName + " : Success ")
       node.appendChild(textnode)
@@ -68,20 +68,31 @@ export async function handleCompareContext(fieldName, fieldValue) {
 export async function handleCustomFieldIndex(dataType) {
   //Grab API to determine the Custom Field Data Types
   const custom_field_api = 'v1/custom_field_definitions'
+  //Grab API Response
   const prom = await sdk.api(custom_field_api, {method : 'GET', body: '{}'})
-  var array_index, dropdown_option, dropdown_option2 = null
+  var array_index, dropdown_option, dropdown_option2, custom_id = null
+
+  
+
 
   for (var i = 0; i < prom.length; i++) {
     if (prom[i].data_type == dataType) {
-      array_index = i
+      custom_id = prom[i].id
       if (dataType === "Dropdown" || dataType === "MultiSelect") {
-        console.log(dataType)
         dropdown_option = prom[i].options[1].id
         dropdown_option2 = prom[i].options[2].id
-      }
+       }
       break
     }
   }
+
+  const context = await sdk.getContext();
+  for (var i = 0; i < context.context.custom_fields.length; i++) {
+    if (context.context.custom_fields[i].custom_field_definition_id == custom_id) {
+      array_index = i;
+    }
+  }
+
   if (dataType === "Dropdown" || dataType === "MultiSelect") {
     return [array_index, dropdown_option, dropdown_option2]
   } else {

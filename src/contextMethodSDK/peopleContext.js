@@ -556,7 +556,6 @@ export async function customTextArea() {
   //Grabs the Custom Field Object on the record to alter
   const { context } = await sdk.getContext()
   var custom_field_object = context.custom_fields
-
   //Grab the ID of the Index that needs to be altered
   var array_index = await handleCustomFieldIndex("Text")
 

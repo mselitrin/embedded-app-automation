@@ -12,11 +12,11 @@ async function automatePeople() {
     await handleLogActivity();
     //Relate Task
     await handleRelateTask();
-    //Relate Opportunity
+    // //Relate Opportunity
     await handleRelateOpportunity();
-    //Relate Project
+    // //Relate Project
     await handleRelateProject();
-    //Creates Person Entity
+    // //Creates Person Entity
     await handleCreateEntity("person");
 }
 

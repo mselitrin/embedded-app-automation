@@ -10,6 +10,7 @@ export async function handleLogActivity() {
   const activity_search = 'v1/activity_types'
   var activity_result = await sdk.api(activity_search, {method : 'GET', body : '{}'})
 
+  console.log(activity_result)
   for(var i = 0; i < activity_result.user.length; i++) {
     if (activity_result.user[i].name == "Phone Call") {
       activityID[1] = activity_result.user[i].id
@@ -21,6 +22,8 @@ export async function handleLogActivity() {
       activityID[4] = activity_result.user[i].id
     }
   }
+
+  console.log(activityID)
 
   for (var i = 0; i < activityType.length; i++) {
     await sdk.logActivity(activityID[i], activityType[i]);

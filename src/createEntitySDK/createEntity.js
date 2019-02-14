@@ -1,7 +1,7 @@
 import copperSDK from 'copper-sdk'
 const sdk = copperSDK.init()
 
-export async function handleCreateEntity(entity) {
+export async function handleCreateEntity() {
   //DevAPI Search for Contact Record (Slow but meh)
   const search_contact = 'v1/people/search'
   prom = await sdk.api(search_contact, {method : 'POST', body : '{"page_size" : 10}'})
@@ -44,8 +44,8 @@ export async function handleCreateEntity(entity) {
                           ]);
 
 
-  //var entityType = document.getElementById('entityType').value
-  var entityType = entity
+  var entityType = document.getElementById('entityType').value
+  //var entityType = entity
   var parseJSON = JSON.parse(entityJSON.get(entityType))
   var prom = await sdk.createEntity(entityType, parseJSON)
   console.log(prom)
