@@ -24,10 +24,10 @@ export async function handleSaveContext(fieldName, fieldValue, errorMessage = ''
   } catch (e) {
     console.log(errorMessage + e.detail)
     if (e.detail == errorMessage) {
-      textnode = document.createTextNode(fieldName + " : Success ")
+      textnode = document.createTextNode(fieldName + " : Success\n ")
       node.appendChild(textnode)
     } else {
-      textnode = document.createTextNode(fieldName + " : Failure ")
+      textnode = document.createTextNode(fieldName + " : Failure\n ")
       node.appendChild(textnode)
     }
   }
@@ -50,17 +50,17 @@ export async function handleCompareContext(fieldName, fieldValue) {
     console.log(JSON.stringify(context[fieldName]))
     console.log(JSON.stringify(fieldValue))
     console.log(JSON.stringify(context[fieldName]) === JSON.stringify(fieldValue))
-    textnode = document.createTextNode(fieldName + " : Success ")
+    textnode = document.createTextNode(fieldName + " : Success\n ")
     node.appendChild(textnode)
   //If Plain Value
   } else if (context[fieldName] === fieldValue){
-    textnode = document.createTextNode(fieldName + " : Success ")
+    textnode = document.createTextNode(fieldName + " : Success\n ")
     node.appendChild(textnode)
     console.log(fieldValue)
     console.log(context[fieldName] === fieldValue)
   //Fail Messages
   } else {
-    textnode = document.createTextNode(fieldName + " : Failure ")
+    textnode = document.createTextNode(fieldName + " : Failure\n ")
     node.appendChild(textnode)
   }
 }
