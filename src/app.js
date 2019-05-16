@@ -22,9 +22,13 @@ import copperSDK from 'copper-sdk'
 const sdk = copperSDK.init()
 console.log(copperSDK.version)
 
-sdk.on('contextUpdated', function() {
-  console.log("Hi Context Updated")
-})
+sdk.on('recordSelected', () => {
+  console.log('recordSelected called'); // Never called
+});
+
+sdk.on('contextUpdated', () => {
+  console.log('contextUpdated called'); // Never called
+});
 
 //This enables the sliding open and closing of the section
 $(".sdkMethod").click(function () {
@@ -35,3 +39,5 @@ $(".sdkMethod").click(function () {
     $content.slideToggle(500, function () {
     });
 });
+
+
